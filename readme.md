@@ -5,6 +5,6 @@ A website where the user can sign up and share their favorite campgrounds.
 
 
 ### Technologies uses
--Frontend: HTML, CSS, Javascript 
--Backend: Node.js, MongoDB
--Server: Heroku, mLab
+- Frontend: HTML, CSS, Javascript 
+- Backend: Node.js, MongoDB
+- Server: Heroku, mLab
