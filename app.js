@@ -18,8 +18,9 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
 
-//connect database, note need to specify DATABASEURL on heroku       
-mongoose.connect(process.env.DATABASEURL);
+//connect database 
+var database_url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
+mongoose.connect(database_url);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -49,7 +50,6 @@ app.use(function(req, res, next){
    res.locals.error = req.flash('error');
    next();
 });
-
 
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
