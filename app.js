@@ -18,11 +18,9 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
 
-//local database       
-//mongoose.connect("mongodb://localhost/yelp_camp_v9");
+//connect database, note need to specify DATABASEURL on heroku       
+mongoose.connect(process.env.DATABASEURL);
 
-//server database
-mongoose.connect("mongodb://ziweiwu:123456Zi@ds135547.mlab.com:35547/yelp_camp_ziwei");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -33,7 +31,7 @@ app.use(cookieParser('secret'));
 
 // PASSPORT CONFIGURATION
 app.use(require("express-session")({
-    secret: "Once again Rusty wins cutest dog!",
+    secret: "This is a secret.",
     resave: false,
     saveUninitialized: false
 }));
